@@ -1,0 +1,62 @@
+﻿<Window x:Class="moneyApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:moneyApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Row="0">
+            <TextBox  Text="Kwota" x:Name="kwotaa"></TextBox>
+            <TextBox   Text="Rodzaj Transakcji" x:Name="nazwaTransakcjii"  ></TextBox>
+            <DatePicker  Text="Wybierz date" Name="dataa"></DatePicker>
+            <ComboBox x:Name="RodzajTransakcjii">
+                <ComboBoxItem>Wydatek</ComboBoxItem>
+                <ComboBoxItem>Przychod</ComboBoxItem>
+            </ComboBox>
+            <Button Width="50" Height="50"  Content="save" Click="Button_Click" ></Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <ListView  HorizontalAlignment = "Left" 
+         VerticalAlignment = "Top" Name="lista" >
+
+                <ListView.View>
+
+                    <GridView>
+                        <GridViewColumn Header = "Kwota"  
+                  Width = "100" DisplayMemberBinding="{Binding Kwota}"/>
+
+                        <GridViewColumn Header = "Typ" 
+                  Width = "100"  DisplayMemberBinding="{Binding NazwaTransakcji}"/>
+
+                        <GridViewColumn Header = "Data"   DisplayMemberBinding="{Binding Data}"
+                  Width = "100"/>
+
+                        <GridViewColumn Header = "Rodzaj"   DisplayMemberBinding="{Binding  RodzajTransakcji}"
+                  Width = "100"/>
+
+                    </GridView>
+
+                </ListView.View>
+
+
+            </ListView>
+            <Button Content="Usuń" Click="Button_Click_1" ></Button>
+            <Button Content="Edytuj" Click="Button_Click_2"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <TextBox Name="Przychod"></TextBox>
+            <TextBox Name="Wydatki"></TextBox>
+            <TextBox Name="Podsumowanie" ></TextBox>
+        </StackPanel>
+    </Grid>
+</Window>
