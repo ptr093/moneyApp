@@ -16,6 +16,12 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid.Background  >
+            <LinearGradientBrush x:Name="Backgnd">
+                <GradientStop Offset="01" Color="Violet"></GradientStop>
+                <GradientStop Offset="0.3" Color="Red"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>
         <DockPanel  Grid.Row="0">
             <Button  Content="Dodaj Wydatki" Click="Button_Click_3"  Width="400"></Button>
             <Button  Content="Lista Wydatków"  Click="Button_Click_4" Width="400"></Button>

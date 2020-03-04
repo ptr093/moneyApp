@@ -90,6 +90,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Oblicz.cs" />
     <Compile Include="Wydatki.xaml.cs">
       <DependentUpon>Wydatki.xaml</DependentUpon>
     </Compile>

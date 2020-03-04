@@ -168,7 +168,9 @@ namespace moneyApp
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-
+            Wydatki wydatki = new Wydatki();
+            wydatki.Show();
+            this.Close();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
