@@ -4,28 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:moneyApp"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <DockPanel  Grid.Row="0">
+            <Button  Content="Dodaj Wydatki" Click="Button_Click_3"  Width="400"></Button>
+            <Button  Content="Lista Wydatków"  Click="Button_Click_4" Width="400"></Button>
+        </DockPanel>
 
 
-        <StackPanel Grid.Row="0">
-            <TextBox  Text="Kwota" x:Name="kwotaa"></TextBox>
-            <TextBox   Text="Rodzaj Transakcji" x:Name="nazwaTransakcjii"  ></TextBox>
+        <StackPanel Grid.Row="1"  HorizontalAlignment="Center" Margin="20">
+            <TextBox Controls:TextBoxHelper.Watermark="Kwota"   x:Name="kwotaa"></TextBox>
+            <TextBox   Controls:TextBoxHelper.Watermark="Nazwa Transakcji" x:Name="nazwaTransakcjii"  ></TextBox>
             <DatePicker  Text="Wybierz date" Name="dataa"></DatePicker>
             <ComboBox x:Name="RodzajTransakcjii">
                 <ComboBoxItem>Wydatek</ComboBoxItem>
                 <ComboBoxItem>Przychod</ComboBoxItem>
             </ComboBox>
-            <Button Width="50" Height="50"  Content="save" Click="Button_Click" ></Button>
+            <Button  Height="40"  Content="Dodaj" Click="Button_Click" ></Button>
         </StackPanel>
-
-        <StackPanel Grid.Row="1">
+        <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="2">
+           
+       
+        <StackPanel Grid.Row="2" Margin="10" HorizontalAlignment="Center">
             <ListView  HorizontalAlignment = "Left" 
          VerticalAlignment = "Top" Name="lista" >
 
@@ -50,13 +60,17 @@
 
 
             </ListView>
-            <Button Content="Usuń" Click="Button_Click_1" ></Button>
-            <Button Content="Edytuj" Click="Button_Click_2"></Button>
+
+            <Button Margin="5"  Content="Usuń" Click="Button_Click_1" ></Button>
+            <Button Margin="5" Content="Edytuj" Click="Button_Click_2"></Button>
         </StackPanel>
-        <StackPanel Grid.Row="2">
-            <TextBox Name="Przychod"></TextBox>
-            <TextBox Name="Wydatki"></TextBox>
-            <TextBox Name="Podsumowanie" ></TextBox>
+        </ScrollViewer>
+        <StackPanel Grid.Row="3"  >
+            <Label Name="Przychod" Content="Przychód:"></Label>
+            <Label Name="Wydatki" Content="Wydatki:"></Label>
+            <Label Name="Podsumowanie" Content="Podsumowanie:"></Label>
+            <Button Name="BtnSave" Content="Zapisz" Click="BtnSave_Click" ></Button>
         </StackPanel>
     </Grid>
 </Window>
+    

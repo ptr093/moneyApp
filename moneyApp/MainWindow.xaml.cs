@@ -93,9 +93,13 @@ namespace moneyApp
 
         private void Rekalkulacja(decimal [] suma)
         {
-            Podsumowanie.Text = suma[0].ToString();
-            Przychod.Text = suma[1].ToString();
-            Wydatki.Text = suma[2].ToString();
+            var pod = "Podsumowanie: ";
+            var przych = "Przychod: ";
+            var wydatki = "Wydatki: ";
+
+            Podsumowanie.Content =  pod + suma[0].ToString();
+            Przychod.Content = przych+ suma[1].ToString();
+            Wydatki.Content = wydatki+ suma[2].ToString();
         }
 
         public static decimal [] ObliczWydatki()
@@ -157,6 +161,43 @@ namespace moneyApp
             Console.WriteLine("");
         }
 
-        
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+            KasaEntities kas = new KasaEntities();
+
+
+            if (kasa.Count > 0)
+            {
+                MessageBox.Show("Dziala?");
+
+                for (int i = 0; i < kasa.Count; i++)
+                {
+                    var data = kasa[i].
+                        Data.ToString();
+                    var Wydatkii = new Wydatkii
+                    {
+                        
+                        Kwota = kasa[i].Kwota,
+                        Nazwa_Transakcji = kasa[i].NazwaTransakcji,
+                        Rodzaj_Transakcji = kasa[i].RodzajTransakcji,
+                        Data = DateTime.Parse(data)
+                    };
+                    kas.Wydatkii.Add(Wydatkii);
+                }
+
+                kas.SaveChanges();
+            }
+        }
     }
 }
