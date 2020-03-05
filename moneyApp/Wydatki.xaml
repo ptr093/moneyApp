@@ -9,23 +9,23 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <Grid.Background  >
             <LinearGradientBrush x:Name="Backgnd">
-                <GradientStop Offset="01" Color="Violet"></GradientStop>
+                <GradientStop Offset="0.7" Color="Orange"></GradientStop>
                 <GradientStop Offset="0.3" Color="Red"></GradientStop>
             </LinearGradientBrush>
         </Grid.Background>
         <DockPanel  Grid.Row="0">
-            <Button  Content="Dodaj Wydatki" Click="Button_Click_1"  Width="400"></Button>
-            <Button  Content="Lista Wydatków" Click="Button_Click" Width="400"></Button>
+            <Button Background="Transparent"  Content="Dodaj Wydatki" Click="Button_Click_1"  Width="400"></Button>
+            <Button  Background="Transparent" Content="Lista Wydatków" Click="Button_Click" Width="400"></Button>
         </DockPanel>
         <StackPanel Grid.Row="1">
-            <ComboBox x:Name="Mies" SelectionChanged="Mies_SelectionChanged">
+            <ComboBox Background="Transparent" x:Name="Mies" SelectionChanged="Mies_SelectionChanged">
 
             </ComboBox>
             
@@ -35,7 +35,7 @@
         <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="2">
 
 
-            <StackPanel Grid.Row="2" Margin="10" HorizontalAlignment="Center">
+            <StackPanel  Margin="10" HorizontalAlignment="Center">
                 <ListView  HorizontalAlignment = "Left" 
          VerticalAlignment = "Top" Name="lista" >
 
@@ -43,16 +43,16 @@
 
                         <GridView>
                             <GridViewColumn Header = "Kwota"  
-                  Width = "100" DisplayMemberBinding="{Binding Kwota}"/>
+                  DisplayMemberBinding="{Binding Kwota}"/>
 
                             <GridViewColumn Header = "Typ" 
-                  Width = "100"  DisplayMemberBinding="{Binding NazwaTransakcji}"/>
+                    DisplayMemberBinding="{Binding NazwaTransakcji}"/>
 
                             <GridViewColumn Header = "Data"   DisplayMemberBinding="{Binding Data}"
-                  Width = "100"/>
+                  />
 
                             <GridViewColumn Header = "Rodzaj"   DisplayMemberBinding="{Binding  RodzajTransakcji}"
-                  Width = "100"/>
+                  />
 
                         </GridView>
 

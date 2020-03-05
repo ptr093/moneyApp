@@ -5,10 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:moneyApp"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Background"  Value= "Black"></Setter>
+            <Setter Property="Opacity" Value="0.7"></Setter>
 
 
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -18,47 +27,51 @@
         </Grid.RowDefinitions>
         <Grid.Background  >
             <LinearGradientBrush x:Name="Backgnd">
-                <GradientStop Offset="01" Color="Violet"></GradientStop>
+                <GradientStop Offset="0.7" Color="Orange"></GradientStop>
                 <GradientStop Offset="0.3" Color="Red"></GradientStop>
             </LinearGradientBrush>
         </Grid.Background>
+
+       
+        
         <DockPanel  Grid.Row="0">
-            <Button  Content="Dodaj Wydatki" Click="Button_Click_3"  Width="400"></Button>
-            <Button  Content="Lista Wydatków"  Click="Button_Click_4" Width="400"></Button>
+            <Button  Background="Transparent"  Content="Dodaj Wydatki" Click="Button_Click_3"  Width="400"></Button>
+            <Button Background="Transparent"  Content="Lista Wydatków"  Click="Button_Click_4" Width="400"></Button>
+          
         </DockPanel>
 
 
         <StackPanel Grid.Row="1"  HorizontalAlignment="Center" Margin="20">
-            <TextBox Controls:TextBoxHelper.Watermark="Kwota"   x:Name="kwotaa"></TextBox>
-            <TextBox   Controls:TextBoxHelper.Watermark="Nazwa Transakcji" x:Name="nazwaTransakcjii"  ></TextBox>
-            <DatePicker  Text="Wybierz date" Name="dataa"></DatePicker>
-            <ComboBox x:Name="RodzajTransakcjii">
+            <TextBox  Background="Transparent" Controls:TextBoxHelper.Watermark="Kwota"   x:Name="kwotaa"></TextBox>
+            <TextBox  Background="Transparent"  Controls:TextBoxHelper.Watermark="Nazwa Transakcji" x:Name="nazwaTransakcjii"  ></TextBox>
+            <DatePicker  Background="Transparent" Text="Wybierz date" Name="dataa"></DatePicker>
+            <ComboBox Background="Transparent" x:Name="RodzajTransakcjii">
                 <ComboBoxItem>Wydatek</ComboBoxItem>
                 <ComboBoxItem>Przychod</ComboBoxItem>
             </ComboBox>
-            <Button  Height="40"  Content="Dodaj" Click="Button_Click" ></Button>
+            <Button  Style="{StaticResource ButtonStyle}" Height="40"   Content="Dodaj" Click="Button_Click" ></Button>
         </StackPanel>
         <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="2">
            
        
         <StackPanel Grid.Row="2" Margin="10" HorizontalAlignment="Center">
-            <ListView  HorizontalAlignment = "Left" 
+            <ListView  Background="Transparent" HorizontalAlignment = "Left" 
          VerticalAlignment = "Top" Name="lista" >
 
                 <ListView.View>
 
                     <GridView>
                         <GridViewColumn Header = "Kwota"  
-                  Width = "100" DisplayMemberBinding="{Binding Kwota}"/>
+                   DisplayMemberBinding="{Binding Kwota}"/>
 
                         <GridViewColumn Header = "Typ" 
-                  Width = "100"  DisplayMemberBinding="{Binding NazwaTransakcji}"/>
+                   DisplayMemberBinding="{Binding NazwaTransakcji}"/>
 
                         <GridViewColumn Header = "Data"   DisplayMemberBinding="{Binding Data}"
-                  Width = "100"/>
+                  />
 
                         <GridViewColumn Header = "Rodzaj"   DisplayMemberBinding="{Binding  RodzajTransakcji}"
-                  Width = "100"/>
+                  />
 
                     </GridView>
 
@@ -67,16 +80,21 @@
 
             </ListView>
 
-            <Button Margin="5"  Content="Usuń" Click="Button_Click_1" ></Button>
-            <Button Margin="5" Content="Edytuj" Click="Button_Click_2"></Button>
+                <Button Style="{StaticResource ButtonStyle}" Margin="5"  Content="Usuń" Click="Button_Click_1" ></Button>
+                <Button Margin="5" Style="{StaticResource ButtonStyle}"  Content="Edytuj" Click="Button_Click_2"></Button>
         </StackPanel>
         </ScrollViewer>
         <StackPanel Grid.Row="3"  >
             <Label Name="Przychod" Content="Przychód:"></Label>
             <Label Name="Wydatki" Content="Wydatki:"></Label>
             <Label Name="Podsumowanie" Content="Podsumowanie:"></Label>
-            <Button Name="BtnSave" Content="Zapisz" Click="BtnSave_Click" ></Button>
+            <Button Style="{StaticResource ButtonStyle}" Name="BtnSave"    Content="Zapisz" Click="BtnSave_Click" Width="150" RenderTransformOrigin="3.179,2.915" >
+                
+                
+            </Button>
+          
         </StackPanel>
+        
     </Grid>
 </Window>
     
